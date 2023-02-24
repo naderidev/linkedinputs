@@ -1,5 +1,7 @@
+import time
 from flet import *
-from src.pininput.pininput import LinkedInputs, AcceptTypes
+from src.pininput.input_types import RegularLinkedInputs
+from src.pininput.pininput import LinkedInputs, AcceptTypes , pprint
 
 
 def main(page: Page):
@@ -12,10 +14,11 @@ def main(page: Page):
         ) for i in range(4)
     ]
 
-    page.add(LinkedInputs(
+    page.add(RegularLinkedInputs(
         page=page,
         inputs=inputs,
-        accept_type=AcceptTypes.ONLY_NUMBER
+        accept_type=AcceptTypes.ONLY_LETTERS,
+        on_error=lambda c: print('Error')
         
     ))
 
