@@ -1,5 +1,15 @@
 from typing import Optional
-from flet import *
+from flet import (
+    Page,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Row,
+    TextField,
+    TextAlign,
+    TextStyle,
+    FontWeight,
+    colors
+)
 from .linkedinputs import AcceptTypes, RegularLinkedInputs
 
 

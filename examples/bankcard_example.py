@@ -1,5 +1,5 @@
 from flet import *
-from src.linkedinputs.linkedinputs import RegularLinkedInputs, AcceptTypes
+from linkedinputs import RegularLinkedInputs, AcceptTypes
 
 
 def main(page: Page):

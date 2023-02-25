@@ -1,7 +1,7 @@
 import random
 from flet import *
-from ..src.linkedinputs.input_types import PinInputT1
-from ..src.linkedinputs.linkedinputs import AcceptTypes
+from linkedinputs import PinInputT1
+from linkedinputs import AcceptTypes
 
 
 def main(page: Page):
