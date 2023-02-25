@@ -59,7 +59,6 @@ class LinkedInputs(UserControl):
         index = e.control.data['index']
         value = e.control.value
         self._vals[index] = value
-
         self.__validate(index)
 
         self._on_change(index, self._vals, self._errors)
@@ -167,8 +166,9 @@ class RegularLinkedInputs(LinkedInputs):
         if self.one_by_one \
                 and ((current_index + 1) < len(values)) \
                 and (len(values[current_index]) >= self.accept_length):
-
+            
             self.inputs[current_index + 1].focus()
+
 
     def __validate_length(self, current_index: int, value: str):
         if not self.errors[current_index]:
