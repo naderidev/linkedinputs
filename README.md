@@ -56,7 +56,7 @@ the ``` RegularLinkedInputs ``` class  has defined new rules (like accept_length
 
 ### an example of RegularLinkedInputs:
 source avliable in ```examples/bankcard_example.py```
-![BankCard exmaple](/bankcard_example.gif "BankCard")
+![BankCard exmaple](https://raw.githubusercontent.com/naderidev/pininput/master/bankcard_example.gif "BankCard")
 In this example when you enter 6 numbers, the associated bank name is displayed (the banks are Iranian)
 
 ## PinInputT1
@@ -84,7 +84,7 @@ class MyPinInput(PinInputT1):
 ````
 ### an example of PinInputT1:
 source avliable in ```examples/pininput_t1_example.py```
-![PinInput exmaple](/pininputt1_example.gif "PinInput")
+![PinInput exmaple](https://raw.githubusercontent.com/naderidev/pininput/master/pininputt1_example.gif "PinInput")
 
 Hope this package be useful for you :)
 # Donating
