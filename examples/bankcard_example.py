@@ -3,7 +3,7 @@ from linkedinputs import RegularLinkedInputs, AcceptTypes
 
 
 def main(page: Page):
-    page.title = 'Banl Card'
+    page.title = 'Bank Card'
     page.vertical_alignment = MainAxisAlignment.CENTER
     page.horizontal_alignment = CrossAxisAlignment.CENTER
     page.bgcolor = '#0d1117'

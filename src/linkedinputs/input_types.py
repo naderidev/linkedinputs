@@ -63,12 +63,11 @@ class PinInputT1(RegularLinkedInputs):
         pass
 
     def _on_complete(self, c):
-        iscorrect = self.correct_answer == self.string_value
         if self.correct_answer:
-            self._input_action_style(not iscorrect)
+            self._input_action_style(not self.is_correct)
 
         if self.__on_complete:
-            self.__on_complete(iscorrect, self)
+            self.__on_complete(self.is_correct, self)
 
     def _on_change(self, current_index: int, values: list = [], errors: list = []):
         super()._on_change(current_index, values, errors)
@@ -81,3 +80,7 @@ class PinInputT1(RegularLinkedInputs):
             input.border_color = (
                 colors.GREEN if not error else colors.RED) if not clear else self.pin_inputs()[0].border_color
             input.update()
+    
+    @property
+    def is_correct(self):
+        return self.correct_answer == self.string_value
