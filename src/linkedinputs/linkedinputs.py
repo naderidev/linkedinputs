@@ -30,7 +30,7 @@ class LinkedInputs(UserControl):
     def __init__(
         self,
         page: Page,
-        inputs: Optional[TextField] = [],
+        inputs: Optional[list[TextField]] = [],
         accept_type: Optional[AcceptTypes] = AcceptTypes.ALL,
         on_change: Optional[callable] = None,
         on_error: Optional[callable] = None,
@@ -82,7 +82,8 @@ class LinkedInputs(UserControl):
             match self.accept_type:
                 case AcceptTypes.ONLY_NUMBER:
                     if not self._vals[index].isdigit():
-                        self._vals[index] = ''.join(filter(str.isdigit, self._vals[index]))
+                        self._vals[index] = ''.join(
+                            filter(str.isdigit, self._vals[index]))
                         self._errors[index] = InputErrorTypes.TYPE_ERROR
                         self.inputs[index].value = self._vals[index]
                         self.inputs[index].update()
@@ -90,7 +91,8 @@ class LinkedInputs(UserControl):
 
                 case AcceptTypes.ONLY_LETTERS:
                     if not self._vals[index].isalpha():
-                        self._vals[index] = ''.join(filter(str.isdigit, self._vals[index]))
+                        self._vals[index] = ''.join(
+                            filter(str.isdigit, self._vals[index]))
                         self.inputs[index].value = self._vals[index]
                         self._errors[index] = InputErrorTypes.TYPE_ERROR
                         self.inputs[index].update()
@@ -99,7 +101,10 @@ class LinkedInputs(UserControl):
         self._errors[index] = None
 
     def build(self):
-        self.place.controls = self.inputs
+        l = self.inputs.copy()
+        if self.page.rtl:
+            l.reverse()
+        self.place.controls = l
         return self.place
 
     def _build(self):
@@ -136,7 +141,7 @@ class LinkedInputs(UserControl):
 class RegularLinkedInputs(LinkedInputs):
     def __init__(
         self, page: Page,
-            inputs: Optional[TextField] = [],
+            inputs: Optional[list[TextField]] = [],
             accept_type: Optional[AcceptTypes] = AcceptTypes.ALL,
             on_change: Optional[callable] = None,
             on_error: Optional[callable] = None,
@@ -168,7 +173,6 @@ class RegularLinkedInputs(LinkedInputs):
                 and (len(values[current_index]) >= self.accept_length):
             
             self.inputs[current_index + 1].focus()
-
 
     def __validate_length(self, current_index: int, value: str):
         if not self.errors[current_index]:

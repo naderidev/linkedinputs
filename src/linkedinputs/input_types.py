@@ -22,6 +22,7 @@ class PinInputT1(RegularLinkedInputs):
             on_change: Optional[callable] = None,
             correct_answer: str = None,
             on_complete: Optional[callable] = None,
+            spacing: int = 5,
             accept_length: int = 1
     ):
         super().__init__(
@@ -34,7 +35,7 @@ class PinInputT1(RegularLinkedInputs):
             place=Row(
                 vertical_alignment=CrossAxisAlignment.CENTER,
                 alignment=MainAxisAlignment.CENTER,
-                spacing=15
+                spacing=spacing
             ),
             accept_length=accept_length,
         )
@@ -71,7 +72,7 @@ class PinInputT1(RegularLinkedInputs):
 
     def _on_change(self, current_index: int, values: list = [], errors: list = []):
         super()._on_change(current_index, values, errors)
-        
+
         if self.correct_answer:
             self._input_action_style(True, True)
 
@@ -80,7 +81,7 @@ class PinInputT1(RegularLinkedInputs):
             input.border_color = (
                 colors.GREEN if not error else colors.RED) if not clear else self.pin_inputs()[0].border_color
             input.update()
-    
+            
     @property
     def is_correct(self):
         return self.correct_answer == self.string_value
