@@ -8,7 +8,7 @@ first of all get the project from pypi or github:
 
 ## cloning form github
 ```shell 
-clone https://github.com/naderidev/linkedinputs
+$ git clone https://github.com/naderidev/linkedinputs
  ````
 
  ## installing using pip
